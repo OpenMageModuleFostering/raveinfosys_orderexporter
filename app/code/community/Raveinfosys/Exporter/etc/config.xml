@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Raveinfosys_Exporter>
-            <version>0.1.0</version>
+            <version>1.0.5</version>
         </Raveinfosys_Exporter>
     </modules>
     <frontend>
@@ -25,15 +25,16 @@
     </frontend>
     <admin>
         <routers>
-			<exporter>
-				<use>admin</use>
+			<adminhtml>
 				<args>
-					<module>Raveinfosys_Exporter</module>
-					<frontName>exporter</frontName>
+                    <modules>
+                        <raveinfosys_exporter before="Mage_Adminhtml">Raveinfosys_Exporter_Adminhtml</raveinfosys_exporter>
+                    </modules>
 				</args>
-			</exporter>
+			</adminhtml>
         </routers>
     </admin>
+
     <adminhtml>
 		<menu>
 			<exporter module="exporter">
@@ -43,13 +44,15 @@
 					<export module="exporter">
 						<title>Export Orders</title>
 						<sort_order>1</sort_order>
-						<action>exporter/adminhtml_exporter</action>
+						<action>*/exporter</action>
 					</export>
 					<import module="exporter">
 						<title>Import Orders</title>
 						<sort_order>2</sort_order>
-						<action>exporter/adminhtml_importer</action>
+						<action>*/importer</action>
 					</import>
+
+
 				</children>
 			</exporter>
 		</menu>
@@ -78,9 +81,9 @@
 		</acl>
 		<layout>
 			<updates>
-				<exporter>
+				<raveinfosys_exporter>
 					<file>exporter.xml</file>
-				</exporter>
+				</raveinfosys_exporter>
 			</updates>
 		</layout>
     </adminhtml>   

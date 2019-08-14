@@ -41,14 +41,14 @@ class Raveinfosys_Exporter_Adminhtml_ExporterController extends Mage_Adminhtml_C
 		$file = Mage::getModel('exporter/exportorders')->exportOrders($order_arr);
 	    $this->_prepareDownloadResponse($file, file_get_contents(Mage::getBaseDir('export').'/'.$file));
 	}
-	
+
 	public function exportCsvAction()
     {
        $orders = $this->getRequest()->getPost('order_ids', array());
 	   $file = Mage::getModel('exporter/exportorders')->exportOrders($orders);
 	   $this->_prepareDownloadResponse($file, file_get_contents(Mage::getBaseDir('export').'/'.$file));
     }
-	
+
 	public function exportLogAction()
 	{
 	  $file = 'order_exception_log.htm';

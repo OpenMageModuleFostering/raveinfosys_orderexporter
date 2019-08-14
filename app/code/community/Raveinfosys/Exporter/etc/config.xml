@@ -60,10 +60,18 @@
 				</all>
 				<admin>
 					<children>
-						<Raveinfosys_Exporter>
+						<exporter>
 							<title>Exporter Module</title>
 							<sort_order>10</sort_order>
-						</Raveinfosys_Exporter>
+							<children>
+								<export>
+									<title>Export Orders</title>
+								</export>
+								<import>
+									<title>Import Orders</title>
+								</import>
+							</children>
+						</exporter>
 					</children>
 				</admin>
 			</resources>
